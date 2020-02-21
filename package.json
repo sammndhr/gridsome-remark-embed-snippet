@@ -18,5 +18,8 @@
 	"bugs": {
 		"url": "https://github.com/mrinalini-m/gridsome-remark-embed-snippet/issues"
 	},
-	"homepage": "https://github.com/mrinalini-m/gridsome-remark-embed-snippet#readme"
+	"homepage": "https://github.com/mrinalini-m/gridsome-remark-embed-snippet#readme",
+	"dependencies": {
+		"unist-util-visit": "^2.0.2"
+	}
 }
