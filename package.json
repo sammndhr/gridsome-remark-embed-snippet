@@ -1,26 +1,26 @@
 {
-	"name": "gridsome-remark-embed-snippet",
-	"version": "1.0.0",
-	"description": "Gridsome plugin to embed the contents of specified files as code snippets.",
-	"main": "index.js",
-	"scripts": {},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/mrinalini-m/gridsome-remark-embed-snippet.git"
-	},
-	"keywords": [
-		"gridsome",
-		"gridsome-plugin",
-		"remark"
-	],
-	"author": "Mrinalini 'Sam' Manandhar",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/mrinalini-m/gridsome-remark-embed-snippet/issues"
-	},
-	"homepage": "https://github.com/mrinalini-m/gridsome-remark-embed-snippet#readme",
-	"dependencies": {
-		"normalize-path": "^3.0.0",
-		"unist-util-visit": "^2.0.2"
-	}
+  "name": "gridsome-remark-embed-snippet",
+  "version": "1.0.0",
+  "description": "Gridsome plugin to embed the contents of specified files as code snippets.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrinalini-m/gridsome-remark-embed-snippet.git"
+  },
+  "keywords": [
+    "gridsome",
+    "gridsome-plugin",
+    "remark"
+  ],
+  "author": "Mrinalini 'Sam' Manandhar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrinalini-m/gridsome-remark-embed-snippet/issues"
+  },
+  "homepage": "https://github.com/mrinalini-m/gridsome-remark-embed-snippet#readme",
+  "dependencies": {
+    "normalize-path": "^3.0.0",
+    "unist-util-visit": "^2.0.2"
+  }
 }
