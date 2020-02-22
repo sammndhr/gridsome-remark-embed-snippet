@@ -20,6 +20,7 @@
 	},
 	"homepage": "https://github.com/mrinalini-m/gridsome-remark-embed-snippet#readme",
 	"dependencies": {
+		"normalize-path": "^3.0.0",
 		"unist-util-visit": "^2.0.2"
 	}
 }
