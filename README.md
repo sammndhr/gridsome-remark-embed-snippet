@@ -15,9 +15,8 @@ yarn add gridsome-remark-embed-snippet @gridsome/transformer-remark
 
 ## Configuration
 
-1. `gridsome.config.js`
-
 ```js
+// gridsome.config.js
 module.exports = {
   transformers: {
     remark: {
@@ -31,9 +30,9 @@ module.exports = {
 
 1. Given the following project structure and example files `some-code.js` and `example-post/index.md`:
 
+```text
 Project structure:
 
-```text
 project_root
 ├── content
 │   └── example-post
@@ -43,17 +42,16 @@ project_root
 └── ...
 ```
 
-`index.md`:
-
 ```md
+<!-- index.md -->
+
 # Example javascript embed
 
 `embed:some-code.js`
 ```
 
-`some-code.js`:
-
 ```js
+// some-code.js
 function someFunc() {
   console.log('testo')
 }
@@ -90,15 +88,10 @@ module.exports = {
 
 `directory`: Optionally, specify location of snippet files and pass in `directory` option. If `directory` option isn't specified, the plugin will use the path that it finds in the markdown file.
 
-## Examples
-
 ### Example Usage One
 
-**Configuration**
-
-`gridsome.config.js`
-
 ```js
+// gridsome.config.js
 module.exports = {
   transformers: {
     remark: {
@@ -115,8 +108,6 @@ module.exports = {
 }
 ```
 
-**Usage**
-
 ```text
 project_root
 ├── content
@@ -126,9 +117,9 @@ project_root
 └── ...
 ```
 
-`example-post-1.md`
-
 ```md
+<!-- example-post-1.md -->
+
 # Example javascript embed
 
 `embed:example-post-1.js`
@@ -138,11 +129,8 @@ project_root
 
 Even without passing the `directory` option, code snippets don't have to be in the same folder. Just make sure that the path is relative to the directory in which the markdown file is located.
 
-**Configuration**
-
-`gridsome.config.js`
-
 ```js
+// gridsome.config.js
 module.exports = {
   transformers: {
     remark: {
@@ -151,8 +139,6 @@ module.exports = {
   }
 }
 ```
-
-**Usage**
 
 ```text
 project_root
@@ -163,9 +149,9 @@ project_root
 └── ...
 ```
 
-`example-post-1.md`
-
 ```md
+<!-- example-post-1.md -->
+
 # Example javascript embed
 
 `embed:./../snippets/example-post-1.js`
