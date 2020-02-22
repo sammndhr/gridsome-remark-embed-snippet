@@ -2,7 +2,7 @@
 
 > Gridsome markdown remark transformer plugin to embed the contents of specified files as code snippets.
 
-This plugin is the gridsome equivalent of the [gatsby-remark-embed-snippet](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-embed-snippet) plugin.
+This plugin is the gridsome equivalent of [gatsby-remark-embed-snippet](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-embed-snippet) plugin.
 
 ## Install
 
@@ -89,6 +89,8 @@ module.exports = {
 ## Options
 
 `directory`: Optionally, specify location of snippet files and pass in `directory` option. If `directory` option isn't specified, the plugin will use the path that it finds in the markdown file.
+
+## Examples
 
 ### Example Usage One
 
