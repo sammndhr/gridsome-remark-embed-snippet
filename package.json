@@ -1,9 +1,8 @@
 {
   "name": "gridsome-remark-embed-snippet",
   "version": "1.0.0",
-  "description": "Gridsome plugin to embed the contents of specified files as code snippets.",
+  "description": "Gridsome markdown remark transformer plugin to embed the contents of specified files as code snippets.",
   "main": "index.js",
-  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mrinalini-m/gridsome-remark-embed-snippet.git"
@@ -11,7 +10,9 @@
   "keywords": [
     "gridsome",
     "gridsome-plugin",
-    "remark"
+    "remark",
+    "remark-embed-snippet",
+    "embed-snippet"
   ],
   "author": "Mrinalini 'Sam' Manandhar",
   "license": "MIT",
