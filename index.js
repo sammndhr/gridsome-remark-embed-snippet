@@ -51,9 +51,7 @@ module.exports = options => {
           const filePath = normalize(path.join(directory, fileName))
 
           if (!fs.existsSync(filePath)) {
-            throw Error(
-              `Invalid snippet specified; no such fileName "${filePath}"`
-            )
+            throw Error(`Invalid snippet specified; no such file "${filePath}"`)
           }
 
           const code = fs.readFileSync(filePath, 'utf8').trim()
@@ -66,6 +64,7 @@ module.exports = options => {
       })
     } catch (error) {
       console.log(error)
+      throw error
     }
   }
 }
