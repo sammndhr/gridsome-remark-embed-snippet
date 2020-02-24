@@ -1,6 +1,6 @@
 {
   "name": "gridsome-remark-embed-snippet",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gridsome markdown remark transformer plugin to embed the contents of specified files as code snippets.",
   "main": "index.js",
   "repository": {
