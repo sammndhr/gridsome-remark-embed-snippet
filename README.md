@@ -15,12 +15,13 @@ yarn add gridsome-remark-embed-snippet @gridsome/transformer-remark
 
 ## Configuration
 
+`gridsome.config.js`
+
 ```js
-// gridsome.config.js
 module.exports = {
   transformers: {
     remark: {
-      plugins: ['gridsome-remark-embed-snippet']
+      plugins: ['gridsome-remark-embed-snippet'],
     }
   }
 }
@@ -42,16 +43,25 @@ project_root
 └── ...
 ```
 
-```md
-<!-- index.md -->
+`index.md`
 
+```md
 # Example javascript embed
 
 `embed:some-code.js`
 ```
 
+Comments will also work.
+
+```md
+# Example javascript embed
+
+<!-- embed:some-code.js -->
+```
+
+`some-code.js`
+
 ```js
-// some-code.js
 function someFunc() {
   console.log('testo')
 }
