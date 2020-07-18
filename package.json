@@ -12,7 +12,8 @@
     "gridsome-plugin",
     "remark",
     "remark-embed-snippet",
-    "embed-snippet"
+    "embed-snippet",
+    "vue"
   ],
   "author": "Mrinalini 'Sam' Manandhar",
   "license": "MIT",
@@ -22,7 +23,7 @@
   "homepage": "https://github.com/mrinalini-m/gridsome-remark-embed-snippet#readme",
   "dependencies": {
     "normalize-path": "^3.0.0",
-    "unist-util-visit": "^2.0.2"
+    "unist-util-visit": "^2.0.3"
   },
   "publishConfig": {
     "access": "public"
@@ -31,8 +32,8 @@
     "node": ">=8"
   },
   "devDependencies": {
-    "jest": "^25.3.0",
-    "remark": "^12.0.0"
+    "jest": "^26.1.0",
+    "remark": "^12.0.1"
   },
   "scripts": {
     "test": "jest"
