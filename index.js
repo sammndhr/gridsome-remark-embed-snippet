@@ -30,14 +30,81 @@ const getFileLang = (file) => {
   return lang
 }
 
-const embedCode = (node, directory, fileName) => {
-  const filePath = normalize(path.join(directory, fileName))
 
-  if (!fs.existsSync(filePath)) {
-    throw Error(`Invalid snippet specified; no such file "${filePath}"`)
+const embedCode = (node, directory, fileName) => {
+  let filePath = normalize(path.join(directory, fileName))
+
+  let lines = []
+  let sname = ``
+  const rangePrefixIndex = filePath.indexOf(`#L`)
+  if (rangePrefixIndex > -1) {
+    const range = filePath.slice(rangePrefixIndex + 2)
+    if (range.length === 1) {
+      lines = [Number.parseInt(range, 10)]
+    } else {
+      lines = rangeParser(range)
+    }
+    // Remove everything after the range prefix from file path
+    filePath = filePath.slice(0, rangePrefixIndex)
+  } else {
+    // Check to see if there is a {snippet: "snippetName"} following the file path.
+    // This syntax could support additional options in the future - for now, only
+    // handle a string that contains a `snippet :` option.
+    const optionIndex = filePath.indexOf(`{`)
+    if (optionIndex > -1) {
+      const optionStr = filePath.slice(optionIndex)
+      filePath = filePath.slice(0, optionIndex)
+      try {
+        const optVal = JSON.parse(
+          optionStr.replace(/snippet\s*:/, `"snippet":`)
+        )
+        if (
+          typeof optVal != `undefined` &&
+          typeof optVal.snippet != `undefined`
+        ) {
+          sname = optVal.snippet
+        } else {
+          throw Error(`Invalid snippet options specified: ${optionStr}`)
+        }
+      } catch (err) {
+        throw Error(`Invalid snippet options specified: ${optionStr}`)
+      }
+    }
   }
 
-  const code = fs.readFileSync(filePath, 'utf8').trim()
+  if (!fs.existsSync(filePath)) {
+    throw Error(`Invalid snippet specified; no such file "${filePath}"
+    console.log('파일경로', ${directory}, ${fileName}, ${filePath})
+    `)
+  }
+
+  let code = fs.readFileSync(filePath, 'utf8').trim()
+  if (lines.length) {
+    code = code
+      .split(`\n`)
+      .filter((_, lineNumber) => lines.includes(lineNumber + 1))
+      .join(`\n`)
+  } else if (sname.length) {
+    const startSnippetMatcher = new RegExp(
+      `start-snippet{${sname}}[^\r\n]*[\r\n](.*)`,
+      `gs`
+    )
+    const startSnippetMatch = startSnippetMatcher.exec(code)
+    if (startSnippetMatch && startSnippetMatch.length >= 2) {
+      code = startSnippetMatch[1]
+
+      const endSnippetMatcher = new RegExp(
+        `(.*)[\r\n][^\r\n]*end-snippet{${sname}}`,
+        `gs`
+      )
+      const endSnippetMatch = endSnippetMatcher.exec(code)
+      if(endSnippetMatch && endSnippetMatch.length >= 2) {
+        code = endSnippetMatch[1]
+      }
+    } else {
+      code = ``
+    }
+  }
   const lang = getFileLang(fileName)
 
   node.type = 'code'

@@ -166,3 +166,101 @@ project_root
 
 `embed:./../snippets/example-post-1.js`
 ```
+
+### Code snippet syntax highlighting
+
+### Hide Lines
+
+It's also possible to specify a range of lines to be hidden.
+
+You can either specify line ranges in the embed using the syntax:
+
+- #Lx - Embed one line from a file
+- #Lx-y - Embed a range of lines from a file
+- #Lx-y,a-b - Embed non-consecutive ranges of lines from a file
+
+**Markdown example**:
+
+```markdown
+This is the JSX of my app:
+
+`embed:App.js#L6-8`
+```
+
+With this example snippet:
+
+```js
+import React from "react"
+import ReactDOM from "react-dom"
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Hello world</h1>
+    </div>
+  )
+}
+```
+
+Will produce something like this:
+
+```markdown
+This is the JSX of my app:
+
+    <div className="App">
+      <h1>Hello world</h1>
+    </div>
+```
+
+
+### Specifying snippets by name
+
+As an alternative to selecting a range of lines from a file, you can add `start-snippet{snippet-name}` and `end-snippet{snippet-name}` in comments in your files. The inclusion of a name for a snippet allows you to create an example file that contains multiple snippets that you reference from different places.
+
+You can specify that you want to only include a named snippet from the embed by using the syntax `{snippet: "snippet-name"}`.
+
+**JavaScript example**:
+
+```markdown
+The function to use is:
+
+`embed:api.js{snippet: "funcA"}`
+
+And it is invoked via:
+
+`embed:api.js{snippet: "invokeA"}`
+```
+
+With this example file `api.js`:
+
+```javascript
+// start-snippet{funcA}
+function factorial(x) {
+    if (x <= 1) return 1
+    else return x * factorial(x - 1)
+}
+// end-snippet{funcA}
+
+function display() {
+    let x = 5
+    // start-snippet{invokeA}
+    let xfact = factorial(x)
+    // end-snippet{invokeA}
+    println!(`{} factorial is {}`, x, xfact)
+}
+```
+
+Will produce something like this:
+
+```markdown
+The function to use is:
+
+function factorial(x) {
+if (x <= 1) return 1
+else return x \* factorial(x - 1)
+}
+
+And it is invoked via:
+
+let xfact = factorial(x)
+```
