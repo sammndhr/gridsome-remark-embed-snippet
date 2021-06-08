@@ -2,6 +2,7 @@ const fs = require(`fs`)
 const path = require(`path`)
 const visit = require('unist-util-visit')
 const normalize = require('normalize-path')
+const rangeParser = require(`parse-numeric-range`)
 
 const EXT_TO_LANG_MAP = {
   md: `markup`,
