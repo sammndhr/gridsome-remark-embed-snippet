@@ -26,7 +26,7 @@ const getFileLang = (file) => {
 
   const lang = EXT_TO_LANG_MAP.hasOwnProperty(extension)
     ? EXT_TO_LANG_MAP[extension]
-    : extension
+    : extension.toLowerCase()
 
   return lang
 }
@@ -106,7 +106,7 @@ const embedCode = (node, directory, fileName) => {
       code = ``
     }
   }
-  const lang = getFileLang(fileName)
+  const lang = getFileLang(filePath)
 
   node.type = 'code'
   node.value = code
