@@ -57,6 +57,3 @@ describe(`gridsome-remark-embed-snippet`, () => {
     return expect(plugin(tree, mockFile)).rejects.toThrow(error)
   })
 })
-
-//Todo: Write more tests. Read more about tests.
-// i_have_no_idea_what_i'm_doing.jpg
